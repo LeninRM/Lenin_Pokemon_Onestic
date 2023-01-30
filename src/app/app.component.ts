@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Lenin_Pokemon_Onestic';
+  title = 'Lenin_Pokemom_Onestic';
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseList } from '../interfaces/response-list';
+import { Result } from '../interfaces/response-list';
 
 @Injectable({
   providedIn: 'root'
