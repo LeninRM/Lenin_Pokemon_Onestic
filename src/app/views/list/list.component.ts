@@ -61,4 +61,34 @@ export class ListComponent {
     this.maxIndex = this.minIndex + $event.pageSize;
   }
 
+
+  /* Detail */
+  public toMeters(dec: any ): number {
+    let meters = dec / 10;
+    return meters;
+  }
+
+  public toKg(dec: any ): number {
+    let kg = dec / 10;
+    return kg;
+  }
+
+  public favController(pokemon: any) {
+    let isFav = localStorage.getItem(pokemon.id.toString()) !== null;
+    if (isFav) {
+      window.localStorage.removeItem(pokemon.id.toString());
+    } else {
+      localStorage.setItem(pokemon.id.toString(), JSON.stringify(pokemon));
+    }
+  }
+
+  public isFav(key:any): string {
+    if (localStorage.getItem(key) !== null) {
+      return "../../../assets/img/icons/starfav.png";
+    } else {
+      return "../../../assets/img/icons/star.png";
+    }
+/*     return localStorage.getItem(key.toString()) !== null; */
+  }
+
 }
