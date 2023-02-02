@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListComponent } from './views/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FavoritesComponent } from './views/favorites/favorites.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppComponent,
     NavbarComponent,
     ListComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

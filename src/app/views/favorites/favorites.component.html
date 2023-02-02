@@ -3,30 +3,29 @@
         [pageSizeOptions]="[10, 20, 50, 100]" (page)="onPageChange($event)" aria-label="Select page">
     </mat-paginator>
 </div>
-
 <div class=" d-flex justify-content-center container ">
 
     <div [ngSwitch]="layout" class="d-flex justify-content-center row pt-3 text-center align-items-center"
         style="width: 80%;">
         <table *ngSwitchCase="'table'" class="table align-middle table-bordered table-hover">
-            <tbody *ngFor="let pokemon of list?.results; let i = index">
+            <tbody *ngFor="let pokemon of favs; let i = index">
                 <tr (click)="getResponsePokemon(pokemon.name)"  data-bs-toggle="modal"
                 data-bs-target="#detailModal" *ngIf="i >= minIndex && i < maxIndex">
-                    <td>#{{this.getIdFromUrl(pokemon.url)}}</td>
-                    <td><img class="img-list" src="{{shared.urlImg + this.getIdFromUrl(pokemon.url)}}.png" alt=""></td>
+                    <td>#{{pokemon.id}}</td>
+                    <td><img class="img-list" src="{{shared.urlImg + pokemon.id}}.png" alt=""></td>
                     <td>{{pokemon.name | titlecase}}</td>
                 </tr>
             </tbody>
         </table>
 
         <div *ngSwitchCase="'grid'" class="row text-center">
-            <ng-container *ngFor="let pokemon of list?.results; let i = index">
+            <ng-container *ngFor="let pokemon of favs; let i = index">
                 <div *ngIf="i >= minIndex && i < maxIndex" class="col-xl-3 col-lg-6 col-md-12 pt-4">
                     <div class="card text-right" (click)="getResponsePokemon(pokemon.name)" data-bs-toggle="modal"
-                        data-bs-target="#detailModal">
-                        <img class="card-img-top" src="{{shared.urlImg + this.getIdFromUrl(pokemon.url)}}.png">
+                        data-bs-target="#detailModal"> 
+                        <img class="card-img-top" src="{{shared.urlImg + pokemon.id}}.png">
                         <div class="card-body">
-                            <h5 class="card-title">#{{this.getIdFromUrl(pokemon.url)}}</h5>
+                            <h5 class="card-title">#{{pokemon.id}}</h5>
                             <p class="card-text">{{pokemon.name | titlecase}}</p>
                         </div>
                     </div>

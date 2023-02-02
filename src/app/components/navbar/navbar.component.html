@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg p-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img width="200px"
+        <a [routerLink]="['/list']" class="navbar-brand" href="#"><img width="200px"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png"
                 alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -10,10 +10,10 @@
         <div class=" collapse navbar-collapse text-center pt-3" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item h4">
-                    <a class="nav-link mx-2 " aria-current="page" href="#">List</a>
+                    <a [routerLink]="['/list']" class="nav-link mx-2 " aria-current="page" href="#">List</a>
                 </li>
                 <li class="nav-item h4">
-                    <a class="nav-link mx-2" href="#">Favs</a>
+                    <a [routerLink]="['/favorites']" class="nav-link mx-2" href="#">Favorites</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">

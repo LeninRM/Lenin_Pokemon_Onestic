@@ -1,17 +1,55 @@
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 :root {
+    /* Light mode */
     --navbar-color: rgb(245, 245, 245);
-    --background-color: #ffffff;
+    --background-color: rgb(255, 255, 255);
     --text-color: #000000;
-    --text-color-dark: #ffffff;
     --mdc-typography-caption-font-size: 1em;
-   }
 
-body{
+    /* Dark mode */
+    --navbar-color-dark: rgb(32,33,35);
+    --background-color-dark: rgb(68, 70, 84);
+    --text-color-dark: #ffffff;
+
+}
+
+body {
     font-family: 'Roboto', sans-serif;
-    background-color:  var(--background-color);
+    background-color: var(--background-color);
     color: var(--text-color)
 }
 
+.mat-mdc-paginator {
+    /* Paginator background */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
 
+.mat-mdc-paginator-icon {
+    /* Flechas usables  */
+    fill: var(--text-color);
+}
+
+.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+    /* Flechas desabilitadas */
+    fill: rgb(161, 172, 182);
+}
+
+.mat-mdc-select-value {
+    /* Numero selected del desplegable */
+    color: var(--text-color);
+}
+
+.mat-mdc-select-arrow svg {
+    /* Flecha del desplegable */
+    fill: var(--text-color) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--text-color);
+}
+
+.img-list{
+    max-width: 100px;
+}

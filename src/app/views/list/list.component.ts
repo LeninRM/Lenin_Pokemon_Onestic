@@ -1,8 +1,7 @@
-import { Component, Input, EventEmitter } from '@angular/core';
+import { Component} from '@angular/core';
 import { ResponseList } from 'src/app/interfaces/response-list';
 import { DataService } from 'src/app/services/data.service';
 import { SharedService } from 'src/app/services/shared.service';
-import { MatPaginatorIntl } from '@angular/material/paginator';
 import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
 
 @Component({
@@ -11,10 +10,9 @@ import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  public constructor(public service: DataService, public shared: SharedService, public paginator: MatPaginatorIntl) { }
+  public constructor(public service: DataService, public shared: SharedService) { }
   public list: ResponseList | undefined;
   public pokemon: ResponsePokemon | undefined;
-  public urlImg: string = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
   public layout: string = "grid";
 
   /* Paginator */
@@ -24,7 +22,7 @@ export class ListComponent {
   public minIndex: number = 0;
 
   public ngOnInit(): void {
-    this.paginator.itemsPerPageLabel = "Pokémon per page";
+    this.shared.paginator.itemsPerPageLabel = "Pokémon per page";
     this.getLayout();
     this.getResponseList();
   }
@@ -39,14 +37,12 @@ export class ListComponent {
     this.service.getList().subscribe(response => {
       this.list = response;
       this.totalItems = this.list.count
-/*       console.log(this.list);
- */    })
+   })
   }
 
   public getResponsePokemon(id: string): void {
     this.service.getPokemon(id).subscribe(response => {
       this.pokemon = response;
-      console.log(this.pokemon);
     })
   }
 
@@ -61,34 +57,5 @@ export class ListComponent {
     this.maxIndex = this.minIndex + $event.pageSize;
   }
 
-
-  /* Detail */
-  public toMeters(dec: any ): number {
-    let meters = dec / 10;
-    return meters;
-  }
-
-  public toKg(dec: any ): number {
-    let kg = dec / 10;
-    return kg;
-  }
-
-  public favController(pokemon: any) {
-    let isFav = localStorage.getItem(pokemon.id.toString()) !== null;
-    if (isFav) {
-      window.localStorage.removeItem(pokemon.id.toString());
-    } else {
-      localStorage.setItem(pokemon.id.toString(), JSON.stringify(pokemon));
-    }
-  }
-
-  public isFav(key:any): string {
-    if (localStorage.getItem(key) !== null) {
-      return "../../../assets/img/icons/starfav.png";
-    } else {
-      return "../../../assets/img/icons/star.png";
-    }
-/*     return localStorage.getItem(key.toString()) !== null; */
-  }
 
 }

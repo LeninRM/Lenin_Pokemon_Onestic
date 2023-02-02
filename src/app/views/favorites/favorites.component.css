@@ -1,9 +1,4 @@
-
-table{
-    color: var(--text-color)
-}
-
-  .modal-body .col-sm-6:first-child {
+.modal-body .col-sm-6:first-child {
     width: 35%;
     height: auto;
   }
