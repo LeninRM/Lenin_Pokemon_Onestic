@@ -13,7 +13,7 @@ export class ListComponent {
   public constructor(public service: DataService, public shared: SharedService) { }
   public list: ResponseList | undefined;
   public pokemon: ResponsePokemon | undefined;
-  public layout: string = "grid";
+  public layout: string | null = localStorage.getItem("layout") || "grid";
 
   /* Paginator */
   public totalItems: number = 0;
@@ -30,7 +30,7 @@ export class ListComponent {
   public getLayout(): void {
     this.shared.layout.subscribe(layout => {
       this.layout = layout;
-    })
+    })  
   }
 
   public getResponseList(): void {

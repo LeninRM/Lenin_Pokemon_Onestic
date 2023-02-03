@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef  } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { DataService } from 'src/app/services/data.service';
 import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
@@ -9,11 +9,11 @@ import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
-  public constructor(public service: DataService, public shared: SharedService){ }
+  public constructor(public cdr: ChangeDetectorRef, public service: DataService, public shared: SharedService){ }
 
   public favs: any;
   public urlImg: string = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
-  public layout: string = "grid";
+  public layout: string= localStorage.getItem("layout") || "grid";
   public pokemon: ResponsePokemon | undefined;
 
     /* Paginator */
@@ -32,7 +32,7 @@ export class FavoritesComponent {
     for (let i = 0; i < window.localStorage.length; i++) {
       let key = window.localStorage.key(i);
       console.log(key)
-      if (key) {
+      if (key && key!="layout" && key!="mode") {
         let pokemon = localStorage.getItem(key.toString())
         if (pokemon) {
           let pokemon2 = JSON.parse(pokemon);

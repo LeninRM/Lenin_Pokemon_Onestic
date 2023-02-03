@@ -18,13 +18,13 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-2 nav-link text-dark h5" (click)="layoutSwitcher('grid')">
-                    <img width="32px" src="../../../assets/img/icons/grid.png">
+                    <img width="32px" class="invert" src="../../../assets/img/icons/grid.png">
                 </li>
                 <li class="nav-item mx-2 nav-link text-dark h5" (click)="layoutSwitcher('table')">
-                    <img width="32px" src="../../../assets/img/icons/list.png">
+                    <img width="32px" class="invert" src="../../../assets/img/icons/list.png">
                 </li>
-                <li class="nav-item mx-2 nav-link text-dark h5">
-                    <img width="30px" src="../../../assets/img/icons/moon.png">
+                <li class="nav-item mx-2 nav-link text-dark h5" (click)="modeController()">
+                    <img width="30px" class="invert" src="../../../assets/img/icons/{{modeIcon}}.png">
                 </li>
             </ul>
         </div>

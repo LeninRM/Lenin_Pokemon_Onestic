@@ -10,6 +10,7 @@ import { ListComponent } from './views/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FavoritesComponent } from './views/favorites/favorites.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FavoritesComponent } from './views/favorites/favorites.component';
     NavbarComponent,
     ListComponent,
     FavoritesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
