@@ -71,7 +71,6 @@ export class ListComponent {
         id--;
       }
     }
-    console.log(event);
     this.getResponsePokemon(id.toString());
   }
 
