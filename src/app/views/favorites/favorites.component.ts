@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef  } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { DataService } from 'src/app/services/data.service';
 import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
@@ -9,18 +9,18 @@ import { ResponsePokemon } from 'src/app/interfaces/response-pokemon';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent {
-  public constructor(public cdr: ChangeDetectorRef, public service: DataService, public shared: SharedService){ }
+  public constructor(public cdr: ChangeDetectorRef, public service: DataService, public shared: SharedService) { }
 
   public favs: any;
   public urlImg: string = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
-  public layout: string= localStorage.getItem("layout") || "grid";
+  public layout: string = localStorage.getItem("layout") || "grid";
   public pokemon: ResponsePokemon | undefined;
 
-    /* Paginator */
-    public totalItems: number = 0;
-    public pageSize: number = 10;
-    public maxIndex: number = 20;
-    public minIndex: number = 0;
+  /* Paginator */
+  public totalItems: number = 0;
+  public pageSize: number = 10;
+  public maxIndex: number = 20;
+  public minIndex: number = 0;
 
   public ngOnInit() {
     this.getFavs();
@@ -31,18 +31,16 @@ export class FavoritesComponent {
     let arrayFavs = [];
     for (let i = 0; i < window.localStorage.length; i++) {
       let key = window.localStorage.key(i);
-      console.log(key)
-      if (key && key!="layout" && key!="mode") {
+      if (key && key != "layout" && key != "mode") {
         let pokemon = localStorage.getItem(key.toString())
         if (pokemon) {
           let pokemon2 = JSON.parse(pokemon);
           arrayFavs.push(pokemon2);
         }
       }
-    } 
+    }
     this.favs = arrayFavs.sort((a, b) => a.id - b.id);
     this.totalItems = this.favs.length
-    console.log(this.favs)
   }
 
   public getLayout(): void {
@@ -58,7 +56,6 @@ export class FavoritesComponent {
   }
 
   public onPageChange($event: any) {
-    console.log($event)
     this.minIndex = $event.pageIndex * $event.pageSize;
     this.maxIndex = this.minIndex + $event.pageSize;
   }

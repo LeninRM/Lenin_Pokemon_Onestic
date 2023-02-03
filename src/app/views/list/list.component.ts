@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ResponseList } from 'src/app/interfaces/response-list';
 import { DataService } from 'src/app/services/data.service';
 import { SharedService } from 'src/app/services/shared.service';
@@ -30,14 +30,14 @@ export class ListComponent {
   public getLayout(): void {
     this.shared.layout.subscribe(layout => {
       this.layout = layout;
-    })  
+    })
   }
 
   public getResponseList(): void {
     this.service.getList().subscribe(response => {
       this.list = response;
       this.totalItems = this.list.count
-   })
+    })
   }
 
   public getResponsePokemon(id: string): void {
@@ -48,13 +48,31 @@ export class ListComponent {
 
   public getIdFromUrl(url: string) {
     let urlParts = url.split('/');
-    return urlParts[urlParts.length - 2];
+    let id = urlParts[urlParts.length - 2];
+    return id;
   }
 
   public onPageChange($event: any) {
-    console.log($event)
     this.minIndex = $event.pageIndex * $event.pageSize;
     this.maxIndex = this.minIndex + $event.pageSize;
+  }
+
+  public manageCarousel(id: any, action: string) {
+    if (action == "next") {
+      if (id == 10263) {
+        id = 1;
+      } else {
+        id++;
+      }
+    } else if (action == "back") {
+      if (id == 1) {
+        id = 10263;
+      } else {
+        id--;
+      }
+    }
+    console.log(event);
+    this.getResponsePokemon(id.toString());
   }
 
 

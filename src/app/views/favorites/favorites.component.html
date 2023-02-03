@@ -7,7 +7,7 @@
 
   <div [ngSwitch]="layout" class="d-flex justify-content-center row pt-3 text-center align-items-center"
     style="width: 80%;">
-    <table *ngSwitchCase="'table'" class="table align-middle table-bordered table-hover">
+    <table *ngSwitchCase="'table'" class="table align-middle ">
       <tbody *ngFor="let pokemon of favs; let i = index">
         <tr (click)="getResponsePokemon(pokemon.name)" data-bs-toggle="modal" data-bs-target="#detailModal"
           *ngIf="i >= minIndex && i < maxIndex">

@@ -1,34 +1,18 @@
-@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 :root {
     /* Base */
-    --navbar-color-: rgb(32, 33, 35);
-    --background-color: rgb(255, 255, 255);
-    --text-color: #272626;
-    --card-background: rgb(255, 255, 255);
+    --navbar-color-: #F5F3F3;
+    --background-color:#FFFFFF;
+    --text-color:#272626;
+    --card-background: #F5F3F3;
     --mdc-typography-caption-font-size: 1em;
-    --invert: invert(0%) --mdc-typography-caption-font-size: 1em;
-
-    /* Light mode */
-    /*     --navbar-color-light: rgb(32,33,35);
-    --background-color-light: rgb(255, 255, 255);
-    --text-color-light: #272626;
-    --card-background-light: rgb(255, 255, 255);
-    --invert-light: invert(0%) */
-
-    /* Dark mode */
-    /*     --navbar-color-dark: #353641;
-    --background-color-dark: #444654;
-    --text-color-dark: #f1f0f0;
-    --card-background-dark: #353641;
-    --invert-dark: invert(90%) */
-
+    --invert: invert(0%) 
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: var(--background-color);
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 .invert {
@@ -41,10 +25,37 @@ a {
 
 .card {
     background-color: var(--card-background) !important;
+    transition: all 0.2s ease-out;
+}
 
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+tr {
+    transition: all 0.2s ease-out;
+}
+
+tr:hover {
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background) !important;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-out;
 }
 
 .mat-mdc-paginator {
+    font-family: 'Open Sans', sans-serif;
     /* Paginator background */
     background-color: var(--background-color);
     color: var(--text-color);

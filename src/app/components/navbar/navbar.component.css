@@ -1,3 +1,20 @@
-nav{
+nav {
     background-color: var(--navbar-color);
+}
+
+.navbar-toggler {
+    filter: var(--invert);
+}
+
+li {
+    transition: all 0.2s ease-out;
+}
+
+li:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+}
+
+a{
+    font-weight: bold;
 }

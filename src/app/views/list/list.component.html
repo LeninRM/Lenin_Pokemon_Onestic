@@ -8,7 +8,7 @@
 
   <div [ngSwitch]="layout" class="d-flex justify-content-center row pt-3 text-center align-items-center"
     style="width: 80%;">
-    <table *ngSwitchCase="'table'" class="table align-middle table-bordered table-hover">
+    <table *ngSwitchCase="'table'" class="table align-middle ">
       <tbody *ngFor="let pokemon of list?.results; let i = index">
         <tr (click)="getResponsePokemon(pokemon.name)" data-bs-toggle="modal" data-bs-target="#detailModal"
           *ngIf="i >= minIndex && i < maxIndex">
@@ -90,8 +90,12 @@
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <div class="modal-footer d-flex justify-content-between">
+        <div>
+          <button type="button" (click)="manageCarousel(pokemon?.id, 'back')" class="btn btn-secondary"><img src="../../../assets/img/icons/prev.png" alt=""></button>
+          <button type="button" (click)="manageCarousel(pokemon?.id, 'next')" class="btn btn-secondary ms-4"><img src="../../../assets/img/icons/next.png" alt=""></button>
+        </div>
+        <button type="button" class="btn btn-secondary ml-auto" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
