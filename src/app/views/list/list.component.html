@@ -16,7 +16,7 @@
           <td><img class="img-list" src="{{shared.urlImg + this.getIdFromUrl(pokemon.url)}}.png" alt=""></td>
           <td>
             <div class="d-flex justify-content-center">
-              <img src="../../../assets/img/icons/pokeball.png" alt="" class="pokeball">
+              <img src="./assets/img/icons/pokeball.png" alt="" class="pokeball">
               <p class="card-text ps-2">{{pokemon.name | titlecase}}</p>
             </div>
           </td>
@@ -33,7 +33,7 @@
             <div class="card-body">
               <h5 class="card-title">#{{this.getIdFromUrl(pokemon.url)}}</h5>
               <div class="d-flex justify-content-center">
-                <img src="../../../assets/img/icons/pokeball.png" alt="" class="pokeball">
+                <img src="./assets/img/icons/pokeball.png" alt="" class="pokeball">
                 <p class="card-text ps-2">{{pokemon.name | titlecase}}</p>
               </div>
 
@@ -92,8 +92,8 @@
       </div>
       <div class="modal-footer d-flex justify-content-between">
         <div>
-          <button type="button" (click)="manageCarousel(pokemon?.id, 'back')" class="btn btn-secondary"><img src="../../../assets/img/icons/prev.png" alt=""></button>
-          <button type="button" (click)="manageCarousel(pokemon?.id, 'next')" class="btn btn-secondary ms-4"><img src="../../../assets/img/icons/next.png" alt=""></button>
+          <button type="button" (click)="manageCarousel(pokemon?.id, 'back')" class="btn btn-secondary"><img src="./assets/img/icons/prev.png" alt=""></button>
+          <button type="button" (click)="manageCarousel(pokemon?.id, 'next')" class="btn btn-secondary ms-4"><img src="./assets/img/icons/next.png" alt=""></button>
         </div>
         <button type="button" class="btn btn-secondary ml-auto" data-bs-dismiss="modal">Close</button>
       </div>

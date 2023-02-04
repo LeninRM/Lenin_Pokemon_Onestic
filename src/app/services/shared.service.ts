@@ -33,9 +33,9 @@ export class SharedService {
 
   public isFav(key: any): string {
     if (localStorage.getItem(key) !== null) {
-      return "../../../assets/img/icons/starfav.png";
+      return "./assets/img/icons/starfav.png";
     } else {
-      return "../../../assets/img/icons/star.png";
+      return "./assets/img/icons/star.png";
     }
   }
 
